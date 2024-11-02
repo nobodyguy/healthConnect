@@ -1,27 +1,14 @@
 import * as React from 'react';
 import {
-    ChipField,
     DateField,
     TextField,
     ReferenceField,
-    useRecordContext,
-    ReferenceManyCount,
-    ReferenceManyField
+    ReferenceManyCount
 } from 'react-admin'; // eslint-disable-line import/no-unresolved
 import ListPage from '../../../components/ListPage';
-import { categoriesColors, statusColors, urgencyColors } from '../../../providers/enums';
-import { Theme, styled } from '@mui/material/styles';
+import { StyledChip } from '../../styled';
 
-const colors: any = {
-    status: statusColors,
-    category: categoriesColors,
-    urgency: urgencyColors
-}
 
-const StyledChip = styled(ChipField)((props) => {
-    const record: any = useRecordContext();
-    return { backgroundColor: colors[props.source][record[props.source]] }
-});
 
 const RequestsList: React.FC<{}> = () => {
     const elements = [
@@ -44,10 +31,9 @@ const RequestsList: React.FC<{}> = () => {
             sortByOrder="DESC"
             cellClassName="last_update"
         />,
-        // super pro file a zprávy, proklik na list dat a ukazuje, kolik jich celkem je
         <ReferenceManyCount
-            label=""
-            reference="requests"
+            label="Files"
+            reference="files"
             target="file_id"
             link
         />,

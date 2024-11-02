@@ -81,9 +81,7 @@ const AppContainer = () => {
               element={
                 <Resource
                   name="conversations"
-                  list={ConversationsList}
-                  show={ShowGuesser}
-                  create={ConversationCreateRecord}
+                  list={<TicketShow />}
                 />
               }
             />

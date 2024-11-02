@@ -1,17 +1,15 @@
-import { useRecordContext } from "react-admin";
+import { FC } from "react";
 import { Avatar } from "@mui/material";
+import { RaRecord } from 'ra-core';
 
-export const CustomerAvatar = ({
-  size = "normal",
-}: {
-  size?: "small" | "normal";
+export const CustomerAvatar: FC<{ record: RaRecord, size?: "small" | "normal" }> = ({
+  record, size = "normal"
 }) => {
-  const record = useRecordContext();
   if (!record) return null;
-  console.log(`${record.avatar}`)
+  
   return (
     <Avatar
-      src={`${window.location.origin}/${record.avatar}`}
+      src={record.avatar}
       sx={size === "small" ? { width: 24, height: 24 } : {}}
     />
   );

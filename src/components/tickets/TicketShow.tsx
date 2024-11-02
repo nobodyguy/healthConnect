@@ -8,7 +8,7 @@ import {
   useRecordContext,
 } from "react-admin";
 import { Box } from "@mui/material";
-
+import { StyledChip } from "../styled";
 import { MessageList } from "./MessageList";
 import { StatusField } from "./StatusField";
 
@@ -35,9 +35,12 @@ const ShowAside = () => {
   if (!record) return <Box minWidth={200} flexShrink={0} />;
   return (
     <SimpleShowLayout sx={{ minWidth: 200, flexShrink: 0 }}>
-      <StatusField label="Status" />
-      <DateField source="updated_at" showTime />
-      <ReferenceField source="patient_name" reference="patients" />
+      <></>
+      {/* <StyledChip label="Status" source="status"  />
+      <DateField source="last_updated" showTime />
+      <ReferenceField source="patient_name" reference="patients" /> */}
     </SimpleShowLayout>
   );
 };
+
+export { ShowAside }

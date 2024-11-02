@@ -1,5 +1,5 @@
 import files from "./files.json"
-import conversations from "./conversations.json"
+import conversations from "./conversations.tsx"
 
 export default [
     {

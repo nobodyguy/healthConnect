@@ -9,6 +9,8 @@ import {
   useListContext,
   useRecordContext,
   useUpdate,
+  useGetList,
+  FileInput, FileField
 } from "react-admin";
 import { useFormContext } from "react-hook-form";
 import {
@@ -17,39 +19,45 @@ import {
   ListItem,
   ListItemAvatar,
   ListItemText,
+  Grid
 } from "@mui/material";
-
-import { v4 as uuidv4 } from "uuid";
 
 export const NewMessageForm = () => {
   const { refetch } = useListContext();
   const record = useRecordContext();
   const [create, { isPending: isCreating }] = useCreate();
   const [update] = useUpdate();
+  const { data } = useGetList("conversations", { sort: { field: 'id', order: 'DESC' } })
   const resetForm = useRef<any>();
   const { identity } = useGetIdentity();
 
   const handleSubmit = (values: any) => {
     const { status, message } = values;
     const timestamp: string = new Date().toISOString();
-    console.log(values)
+
+    const newMessage = {
+      id: data ? data[0].id + 1 : 1,
+      message,
+      patient_id: record?.patient_id,
+      user_id: record?.user_id,
+      request_id: record?.id,
+      date: new Date().toISOString(),
+      author: JSON.parse(localStorage.getItem("user") || "{}")
+    }
+
+    resetForm.current && resetForm.current()
+
     create(
       "conversations",
       {
-        data: {
-          id: uuidv4(),
-          message,
-          patient_id: record?.patient_id,
-          user_id: record?.user_id,
-        },
+        data: newMessage,
       },
       {
         onSuccess: () => {
-          update("tickets", {
+          update("requests", {
             id: record?.id,
-            data: { status, updated_at: timestamp },
+            data: { status, last_updated: timestamp, conversations: [ ...record?.conversations, newMessage ] },
           });
-          resetForm.current && resetForm.current();
           refetch();
         },
       }
@@ -86,14 +94,22 @@ export const NewMessageForm = () => {
           }}
         >
           <SetFormContext resetForm={resetForm} />
-          <TextInput
-            source="message"
-            multiline
-            fullWidth
-            minRows={3}
-            helperText={false}
-            validate={required()}
-          />
+          <Grid
+            container
+          >
+            <TextInput
+              source="message"
+              multiline
+              fullWidth
+              minRows={3}
+              helperText={false}
+              validate={required()}
+              sx={{ maxWidth: "85%" }}
+            />
+            <FileInput label="" source="attachments" sx={{ minWidth: "15%" }}>
+              <FileField label="" source="src" title="title" />
+            </FileInput>
+          </Grid>
           <Button
             type="submit"
             variant="contained"

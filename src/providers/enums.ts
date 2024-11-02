@@ -1,13 +1,19 @@
 enum ECategories {
     CONS = "consultation",
     EXC = "examination",
-    UPD = "update"
+    UPD = "update",
+    REP = "recipe",
+    APPL = "application",
+    DOC = "documentation"
 }
 
 const categoriesColors = {
     [ECategories.CONS]: "#2196f3",
-    [ECategories.EXC]: "organge",
-    [ECategories.UPD]: "green"
+    [ECategories.EXC]: "orange",
+    [ECategories.UPD]: "green",
+    [ECategories.REP]: "#2196f3",
+    [ECategories.APPL]: "orange",
+    [ECategories.DOC]: "green"
 }
 
 enum EUrgency {

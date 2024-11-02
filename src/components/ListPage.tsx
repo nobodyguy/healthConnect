@@ -132,6 +132,7 @@ const DesktopListPage: React.FC<{ elements: React.JSX.Element[] }> = ({ elements
         sort={{ field: 'published_at', order: 'DESC' }}
         exporter={exporter}
         actions={postListActions}
+        sx={{ maxWidth: { md: 'auto', lg: "85%" } }}
     >
         <StyledDatagrid
             bulkActionButtons={postListBulkActions}

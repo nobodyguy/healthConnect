@@ -2,7 +2,7 @@ import users from "../auth/users.json"
 import patients from "./patients.json"
 import files from "./files.json"
 import requests from "./requests"
-import conversations from "./conversations.json"
+import conversations from "./conversations.tsx"
 
 export default {
   "requests": requests,
