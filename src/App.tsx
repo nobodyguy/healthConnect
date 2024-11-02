@@ -13,6 +13,8 @@ import authProvider from "./providers/auth/authProvider";
 import dataProviderFactory from "./providers/data/dataProvider";
 import i18nProvider from "./providers/i18n/i18nProvider";
 
+import { AppointmentList, AppointmentIcon } from "./resources/appointments";
+
 export const App = () => {
   const [dataProvider, setDataProvider] = useState<DataProvider | null>(null);
 
@@ -35,18 +37,17 @@ export const App = () => {
       requireAuth
       disableTelemetry
     >
-      <Resource
-        name="posts"
-        list={ListGuesser}
-        edit={EditGuesser}
-        show={ShowGuesser}
-      />
-      <Resource
-        name="comments"
-        list={ListGuesser}
-        edit={EditGuesser}
-        show={ShowGuesser}
-      />
+      {(permissions: string) => (
+        <>
+          {permissions === "doctor" ? (
+            <Resource
+              name="appointments"
+              list={AppointmentList}
+              icon={AppointmentIcon}
+            />
+          ) : null}
+        </>
+      )}
     </Admin>
   );
 };

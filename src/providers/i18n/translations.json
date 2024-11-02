@@ -1,24 +1,25 @@
 {
     "cs": {
         "resources": {
-            "Person": {
-                "name": "Osoba |||| Osoby",
+            "users": {
+                "name": "Uživatel |||| Uživatelé",
                 "fields": {
-                    "username": "Uživatelské jméno",
-                    "firstName": "Jméno",
-                    "middleName": "Prostřední jméno",
-                    "middleNames": "Prostřední jména",
-                    "surname": "Příjmení",
-                    "phone": "Telefon"
+                    "email": "Email",
+                    "username": "Uživatelské jméno"
                 },
-                "empty": "Žádné osoby",
-                "invite": "Chcete jednu vytvořit?",
-                "roles": {
-                    "administrator": "Administrátor",
-                    "technician": "Technik",
-                    "owner": "Vlastník",
-                    "tenant": "Nájemník"
-                }
+                "empty": "Žádní uživatelé",
+                "invite": "Chcete jednoho vytvořit?"
+            },
+            "appointments": {
+                "name": "Termín |||| Termíny",
+                "fields": {
+                    "client": "Klient",
+                    "note": "Poznámka",
+                    "start": "Začátek",
+                    "end": "Konec"
+                },
+                "empty": "Žádné termíny",
+                "invite": "Chcete jeden vytvořit?"
             }
         },
         "ui": {
@@ -26,19 +27,7 @@
         }
     },
     "en": {
-        "resources": {
-            "Person": {
-                "fields": {
-                    "middleName": "Middle name"
-                },
-                "roles": {
-                    "administrator": "Administrator",
-                    "technician": "Technician",
-                    "owner": "Owner",
-                    "tenant": "Tenant"
-                }
-            }
-        },
+        "resources": {},
         "ui": {
             "settings": "Settings"
         }
