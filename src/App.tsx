@@ -49,67 +49,61 @@ const AppContainer = () => {
       requireAuth
       disableTelemetry
     >
-      <Resource name="tickets" {...tickets} list={ListGuesser}/>
       {(permissions: string) => (
         <>
-          {permissions === "doctor" ? (
+          {(permissions === "doctor") ? (
             <Resource
               name="appointments"
               list={AppointmentList}
               icon={AppointmentIcon}
             />
           ) : null}
-      <Resource
-        name="requests"
-        list={RequestsList}
-        edit={EditGuesser}
-        show={ShowGuesser}
-        create={RequestCreateRecord}
-      >
-        <Route
-          path=":id/files"
-          element={
-            <Resource
-              name="files"
-              list={FilesList}
-              edit={EditGuesser}
-              show={ShowGuesser}
-              create={FileCreateRecord}
+          <Resource
+            name="requests"
+            list={RequestsList}
+            edit={EditGuesser}
+            show={ShowGuesser}
+            create={RequestCreateRecord}
+          >
+            <Route
+              path=":id/files"
+              element={
+                <Resource
+                  name="files"
+                  list={FilesList}
+                  edit={EditGuesser}
+                  show={ShowGuesser}
+                  create={FileCreateRecord}
+                />
+              }
             />
-          }
-        />
-        <Route
-          path=":id/conversations"
-          element={
-            <Resource
-              name="conversations"
-              list={ConversationsList}
-              edit={EditGuesser}
-              show={ShowGuesser}
-              create={ConversationCreateRecord}
+            <Route
+              path=":id/conversations"
+              element={
+                <Resource
+                  name="conversations"
+                  list={ConversationsList}
+                  show={ShowGuesser}
+                  create={ConversationCreateRecord}
+                />
+              }
             />
-          }
-        />
-      </Resource>
-      {(permissions: string) => (
-        (permissions === "doctor") ? (
-          <>
-            <Resource
+          </Resource>
+          <Resource
               name="patients"
               list={PatientsList}
-            edit={permissions === "doctor" ? EditGuesser : undefined}
+              edit={permissions === "doctor" ? EditGuesser : undefined}
               show={ShowGuesser}
-            create={permissions === "doctor" ? PatientCreateRecord : undefined}
+              create={permissions === "doctor" ? PatientCreateRecord : undefined}
             />
             <Resource
               name="users"
-            list={permissions === "doctor" ? UsersList : undefined}
-            edit={permissions === "doctor" ? EditGuesser : undefined}
+              list={permissions === "doctor" ? UsersList : undefined}
+              edit={permissions === "doctor" ? EditGuesser : undefined}
               show={ShowGuesser}
-            create={permissions === "doctor" ? UserCreateRecord : undefined}
+              create={permissions === "doctor" ? UserCreateRecord : undefined}
             />
-          </>
-        ) : null
+        </>
       )}
     </Admin>
   );
