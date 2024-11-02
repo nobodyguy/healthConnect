@@ -5,7 +5,7 @@ import {
   EditGuesser,
   ShowGuesser,
 } from "react-admin";
-import { Route } from 'react-router-dom';
+import { Route } from "react-router-dom";
 
 import Layout from "./components/Layout";
 import authProvider from "./providers/auth/authProvider";
@@ -26,17 +26,15 @@ import UserCreateRecord from "./components/pages/create/UserCreate";
 import FileCreateRecord from "./components/pages/create/FileCreate";
 import ConversationCreateRecord from "./components/pages/create/ConversationCreate";
 
-import tickets from "./components/tickets";
-
 
 export const App = () => (
   <DataProvider>
     <AppContainer />
   </DataProvider>
-)
+);
 
 const AppContainer = () => {
-  const { dataProvider } = useDataProvider()
+  const { dataProvider } = useDataProvider();
 
   // hide the admin until the data provider is ready
   if (!dataProvider) return <p>Loading...</p>;
@@ -61,8 +59,6 @@ const AppContainer = () => {
               icon={AppointmentIcon}
             />
           ) : null}
-        </>
-      )}
       <Resource
         name="requests"
         list={RequestsList}
@@ -101,20 +97,20 @@ const AppContainer = () => {
             <Resource
               name="patients"
               list={PatientsList}
-              edit={EditGuesser}
+            edit={permissions === "doctor" ? EditGuesser : undefined}
               show={ShowGuesser}
-              create={PatientCreateRecord}
+            create={permissions === "doctor" ? PatientCreateRecord : undefined}
             />
             <Resource
               name="users"
-              list={UsersList}
-              edit={EditGuesser}
+            list={permissions === "doctor" ? UsersList : undefined}
+            edit={permissions === "doctor" ? EditGuesser : undefined}
               show={ShowGuesser}
-              create={UserCreateRecord}
+            create={permissions === "doctor" ? UserCreateRecord : undefined}
             />
           </>
         ) : null
       )}
     </Admin>
-  )
+  );
 };
