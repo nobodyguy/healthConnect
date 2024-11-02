@@ -1,10 +1,13 @@
-import fakeRestDataProvider from "ra-data-fakerest";
+import localForageDataProvider from 'ra-data-local-forage';
 import data from "./data.json";
 
-const dataProvider = fakeRestDataProvider(
-  data,
-  process.env.NODE_ENV !== "test",
-  300,
-);
 
-export default dataProvider;
+async function startDataProvider(callback: any) {
+  const localForageProvider = await localForageDataProvider({
+    defaultData: data,
+    loggingEnabled: true
+  });
+  callback(localForageProvider)
+}
+
+export default startDataProvider;
