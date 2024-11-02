@@ -20,6 +20,9 @@
                     "tenant": "Nájemník"
                 }
             }
+        },
+        "ui": {
+            "settings": "Nastavení"
         }
     },
     "en": {
@@ -35,6 +38,9 @@
                     "tenant": "Tenant"
                 }
             }
+        },
+        "ui": {
+            "settings": "Settings"
         }
     }
 }

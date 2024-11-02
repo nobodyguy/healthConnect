@@ -3,7 +3,7 @@ import { Layout as RALayout, CheckForApplicationUpdate } from "react-admin";
 import AppBar from "./AppBar";
 
 const Layout = ({ children }: { children: ReactNode }) => (
-  <RALayout>
+  <RALayout appBar={AppBar}>
     {children}
     <CheckForApplicationUpdate />
   </RALayout>
