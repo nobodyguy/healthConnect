@@ -14,7 +14,7 @@ import { StatusField } from "./StatusField";
 
 export const TicketShow = () => {
   return (
-    <Show aside={<ShowAside />}>
+    <Show sx={{ overflowY: "hidden", height: "100vh" }}>
       <SimpleShowLayout>
         <TextField source="subject" label="" variant="h5" sx={{ ml: "72px" }} />
         <ReferenceManyField

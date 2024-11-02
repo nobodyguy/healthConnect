@@ -31,12 +31,6 @@ const RequestsList: React.FC<{}> = () => {
             sortByOrder="DESC"
             cellClassName="last_update"
         />,
-        <ReferenceManyCount
-            label="Files"
-            reference="files"
-            target="file_id"
-            link
-        />,
         <StyledChip source="status" />,
         <StyledChip source="category" />,
         <StyledChip source="urgency"/>

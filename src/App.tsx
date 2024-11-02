@@ -24,6 +24,10 @@ import UserCreateRecord from "./components/pages/create/UserCreate";
 import FileCreateRecord from "./components/pages/create/FileCreate";
 import ConversationCreateRecord from "./components/pages/create/ConversationCreate";
 
+import { RequestShow } from "./components/pages/views/RequestsView";
+
+import { TicketShow } from "./components/tickets/TicketShow";
+
 export const App = () => (
   <DataProvider>
     <AppContainer />
@@ -61,7 +65,7 @@ const AppContainer = () => {
             name="requests"
             list={RequestsList}
             edit={EditGuesser}
-            show={ShowGuesser}
+            show={RequestShow}
             create={RequestCreateRecord}
           >
             <Route

@@ -19,8 +19,9 @@ import {
   ListItem,
   ListItemAvatar,
   ListItemText,
-  Grid
+  Grid, Box
 } from "@mui/material";
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 
 export const NewMessageForm = () => {
   const { refetch } = useListContext();
@@ -30,6 +31,7 @@ export const NewMessageForm = () => {
   const { data } = useGetList("conversations", { sort: { field: 'id', order: 'DESC' } })
   const resetForm = useRef<any>();
   const { identity } = useGetIdentity();
+  const hiddenFileInput = useRef(null);
 
   const handleSubmit = (values: any) => {
     const { status, message } = values;
@@ -62,6 +64,17 @@ export const NewMessageForm = () => {
         },
       }
     );
+  };
+
+    // Programatically click the hidden file input element
+  // when the Button component is clicked
+  const handleClick = (event) => {
+    hiddenFileInput?.current?.click();
+  };  // Call a function (passed as a prop from the parent component)
+  // to handle the user-selected file 
+  const handleChange = (event) => {
+    const fileUploaded = event.target.files[0];
+    // handleFile(fileUploaded);
   };
 
   return (
@@ -104,11 +117,7 @@ export const NewMessageForm = () => {
               minRows={3}
               helperText={false}
               validate={required()}
-              sx={{ maxWidth: "85%" }}
             />
-            <FileInput label="" source="attachments" sx={{ minWidth: "15%" }}>
-              <FileField label="" source="src" title="title" />
-            </FileInput>
           </Grid>
           <Button
             type="submit"
@@ -118,6 +127,20 @@ export const NewMessageForm = () => {
           >
             Submit
           </Button>
+          <Button
+            type="button"
+            variant="contained"
+            sx={{ m: 2 }}
+            onClick={handleClick}
+          >
+            Upload files
+          </Button>
+          <input
+            type="file"
+            onChange={handleChange}
+            ref={hiddenFileInput}
+            style={{display: 'none'}} // Make the file input element invisible
+          />
         </Form>
       </ListItemText>
     </ListItem>
