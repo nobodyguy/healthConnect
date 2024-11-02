@@ -56,8 +56,8 @@ export const AppointmentList = () => {
         <Datagrid>
           <TextField source="id" />
           <TextField source="client" />
-          <DateField source="start" showTime />
-          <DateField source="end" showTime />
+          <DateField source="start" showTime locales="cs-CZ" />
+          <DateField source="end" showTime locales="cs-CZ" />
         </Datagrid>
       )}
     </List>
