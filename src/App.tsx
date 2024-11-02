@@ -1,4 +1,4 @@
-import { Admin, Resource, EditGuesser, ShowGuesser, usePermissions } from "react-admin";
+import { Admin, Resource, EditGuesser, ShowGuesser } from "react-admin";
 import { Route } from "react-router-dom";
 
 import Layout from "./components/Layout";
@@ -16,7 +16,6 @@ import RequestsList from "./components/pages/lists/RequestsList";
 import PatientsList from "./components/pages/lists/PatientsList";
 import UsersList from "./components/pages/lists/UsersList";
 import FilesList from "./components/pages/lists/FilesList";
-import ConversationsList from "./components/pages/lists/ConversationsList";
 
 import Dashboard from "./components/dashboard/Dashboard";
 
@@ -24,11 +23,8 @@ import PatientCreateRecord from "./components/pages/create/PatientCreate";
 import RequestCreateRecord from "./components/pages/create/RequestCreate";
 import UserCreateRecord from "./components/pages/create/UserCreate";
 import FileCreateRecord from "./components/pages/create/FileCreate";
-import ConversationCreateRecord from "./components/pages/create/ConversationCreate";
-
-import { RequestShow } from "./components/pages/views/RequestsView";
-
 import { TicketShow } from "./components/tickets/TicketShow";
+import { RequestShow } from "./components/pages/views/RequestsView";
 
 export const App = () => (
   <DataProvider>
@@ -85,12 +81,7 @@ const AppContainer = () => {
             />
             <Route
               path=":id/conversations"
-              element={
-                <Resource
-                  name="conversations"
-                  list={<TicketShow />}
-                />
-              }
+              element={<Resource name="conversations" list={<TicketShow />} />}
             />
           </Resource>
           <Resource

@@ -4,7 +4,7 @@ import Card from '@mui/material/Card';
 import CardContent from "@mui/material/CardContent";
 import Typography from '@mui/material/Typography';
 import { Stack } from '@mui/material';
-import { TicketListWidget } from "../tickets/TicketList";
+import { OpenRequestsWidget } from "../pages/lists/RequestsList";
 
 export function LatestOpenRequests() {
     return (
@@ -18,7 +18,7 @@ export function LatestOpenRequests() {
                 </Typography>
             </Box>
             <Card sx={{ mb: 2, px: 2 }}>
-                <TicketListWidget />
+                <OpenRequestsWidget />
             </Card>
         </Stack>
     );
