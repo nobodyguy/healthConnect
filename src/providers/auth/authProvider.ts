@@ -4,7 +4,7 @@ import data from "./users.json";
 /**
  * This authProvider is only for test purposes. Don't use it in production.
  */
-export const authProvider: AuthProvider = {
+const authProvider: AuthProvider = {
   login: ({ username, password }) => {
     const user = data.users.find(
       (u) => u.username === username && u.password === password,
@@ -31,7 +31,10 @@ export const authProvider: AuthProvider = {
   checkAuth: () =>
     localStorage.getItem("user") ? Promise.resolve() : Promise.reject(),
   getPermissions: () => {
-    return Promise.resolve(undefined);
+    const persistedUser = localStorage.getItem("user");
+    const user = persistedUser ? JSON.parse(persistedUser) : null;
+
+    return Promise.resolve(user.role);
   },
   getIdentity: () => {
     const persistedUser = localStorage.getItem("user");

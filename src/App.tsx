@@ -5,15 +5,21 @@ import {
   EditGuesser,
   ShowGuesser,
 } from "react-admin";
-import { Layout } from "./Layout";
-import { dataProvider } from "./dataProvider";
-import { authProvider } from "./authProvider";
+
+import Layout from "./components/Layout";
+import dataProvider from "./providers/data/dataProvider";
+import authProvider from "./providers/auth/authProvider";
+import i18nProvider from "./providers/i18n/i18nProvider";
 
 export const App = () => (
   <Admin
+    title="healthConnect"
     layout={Layout}
     dataProvider={dataProvider}
     authProvider={authProvider}
+    i18nProvider={i18nProvider}
+    requireAuth
+    disableTelemetry
   >
     <Resource
       name="posts"

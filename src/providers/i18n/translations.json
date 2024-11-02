@@ -1,0 +1,40 @@
+{
+    "cs": {
+        "resources": {
+            "Person": {
+                "name": "Osoba |||| Osoby",
+                "fields": {
+                    "username": "Uživatelské jméno",
+                    "firstName": "Jméno",
+                    "middleName": "Prostřední jméno",
+                    "middleNames": "Prostřední jména",
+                    "surname": "Příjmení",
+                    "phone": "Telefon"
+                },
+                "empty": "Žádné osoby",
+                "invite": "Chcete jednu vytvořit?",
+                "roles": {
+                    "administrator": "Administrátor",
+                    "technician": "Technik",
+                    "owner": "Vlastník",
+                    "tenant": "Nájemník"
+                }
+            }
+        }
+    },
+    "en": {
+        "resources": {
+            "Person": {
+                "fields": {
+                    "middleName": "Middle name"
+                },
+                "roles": {
+                    "administrator": "Administrator",
+                    "technician": "Technician",
+                    "owner": "Owner",
+                    "tenant": "Tenant"
+                }
+            }
+        }
+    }
+}
