@@ -10,16 +10,15 @@ import {
 import Layout from "./components/Layout";
 import { DataProvider } from "ra-core";
 import authProvider from "./providers/auth/authProvider";
-import startDataProvider from "./providers/data/dataProvider";
+import dataProviderFactory from "./providers/data/dataProvider";
 import i18nProvider from "./providers/i18n/i18nProvider";
-
 
 export const App = () => {
   const [dataProvider, setDataProvider] = useState<DataProvider | null>(null);
 
   useEffect(() => {
     if (dataProvider === null) {
-      startDataProvider(setDataProvider);
+      dataProviderFactory(setDataProvider);
     }
   }, [dataProvider]);
 
@@ -49,5 +48,5 @@ export const App = () => {
         show={ShowGuesser}
       />
     </Admin>
-  )
+  );
 };

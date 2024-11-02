@@ -1,13 +1,12 @@
-import localForageDataProvider from 'ra-data-local-forage';
+import localForageDataProvider from "ra-data-local-forage";
 import data from "./data.json";
 
-
-async function startDataProvider(callback: any) {
+async function dataProviderFactory(callback: any) {
   const localForageProvider = await localForageDataProvider({
     defaultData: data,
-    loggingEnabled: true
+    loggingEnabled: true,
   });
-  callback(localForageProvider)
+  callback(localForageProvider);
 }
 
-export default startDataProvider;
+export default dataProviderFactory;
