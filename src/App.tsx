@@ -18,7 +18,7 @@ import UsersList from "./components/pages/lists/UsersList";
 import FilesList from "./components/pages/lists/FilesList";
 import ConversationsList from "./components/pages/lists/ConversationsList";
 
-import Dashboard from "./components/Dashboard";
+import Dashboard from "./components/dashboard/Dashboard";
 
 import PatientCreateRecord from "./components/pages/create/PatientCreate";
 import RequestCreateRecord from "./components/pages/create/RequestCreate";
