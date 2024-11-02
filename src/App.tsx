@@ -5,7 +5,7 @@ import {
   EditGuesser,
   ShowGuesser,
 } from "react-admin";
-import { Route } from 'react-router-dom';
+import { Route } from "react-router-dom";
 
 import Layout from "./components/Layout";
 import authProvider from "./providers/auth/authProvider";
@@ -26,15 +26,14 @@ import UserCreateRecord from "./components/pages/create/UserCreate";
 import FileCreateRecord from "./components/pages/create/FileCreate";
 import ConversationCreateRecord from "./components/pages/create/ConversationCreate";
 
-
 export const App = () => (
   <DataProvider>
     <AppContainer />
   </DataProvider>
-)
+);
 
 const AppContainer = () => {
-  const { dataProvider } = useDataProvider()
+  const { dataProvider } = useDataProvider();
 
   // hide the admin until the data provider is ready
   if (!dataProvider) return <p>Loading...</p>;
@@ -58,54 +57,54 @@ const AppContainer = () => {
               icon={AppointmentIcon}
             />
           ) : null}
+          <Resource
+            name="requests"
+            list={RequestsList}
+            edit={EditGuesser}
+            show={ShowGuesser}
+            create={RequestCreateRecord}
+          >
+            <Route
+              path=":id/files"
+              element={
+                <Resource
+                  name="files"
+                  list={FilesList}
+                  edit={EditGuesser}
+                  show={ShowGuesser}
+                  create={FileCreateRecord}
+                />
+              }
+            />
+            <Route
+              path=":id/conversations"
+              element={
+                <Resource
+                  name="conversations"
+                  list={ConversationsList}
+                  edit={EditGuesser}
+                  show={ShowGuesser}
+                  create={ConversationCreateRecord}
+                />
+              }
+            />
+          </Resource>
+          <Resource
+            name="patients"
+            list={PatientsList}
+            edit={permissions === "doctor" ? EditGuesser : undefined}
+            show={ShowGuesser}
+            create={permissions === "doctor" ? PatientCreateRecord : undefined}
+          />
+          <Resource
+            name="users"
+            list={permissions === "doctor" ? UsersList : undefined}
+            edit={permissions === "doctor" ? EditGuesser : undefined}
+            show={ShowGuesser}
+            create={permissions === "doctor" ? UserCreateRecord : undefined}
+          />
         </>
       )}
-      <Resource
-        name="requests"
-        list={RequestsList}
-        edit={EditGuesser}
-        show={ShowGuesser}
-        create={RequestCreateRecord}
-      >
-        <Route
-          path=":id/files"
-          element={
-            <Resource
-              name="files"
-              list={FilesList}
-              edit={EditGuesser}
-              show={ShowGuesser}
-              create={FileCreateRecord}
-            />
-          }
-        />
-        <Route
-          path=":id/conversations"
-          element={
-            <Resource
-              name="conversations"
-              list={ConversationsList}
-              edit={EditGuesser}
-              show={ShowGuesser}
-              create={ConversationCreateRecord}
-            />
-          }
-        />
-      </Resource>
-      <Resource
-        name="patients"
-        list={PatientsList}
-        edit={EditGuesser}
-        show={ShowGuesser}
-        create={PatientCreateRecord}
-      />
-      <Resource
-        name="users"
-        list={UsersList}
-        edit={EditGuesser}
-        show={ShowGuesser}
-        create={UserCreateRecord}
-      />
     </Admin>
-  )
+  );
 };
