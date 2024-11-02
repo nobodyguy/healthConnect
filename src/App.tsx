@@ -1,4 +1,4 @@
-import { Admin, Resource, EditGuesser, ShowGuesser } from "react-admin";
+import { Admin, Resource, EditGuesser, ShowGuesser, usePermissions } from "react-admin";
 import { Route } from "react-router-dom";
 
 import Layout from "./components/Layout";
@@ -17,6 +17,8 @@ import PatientsList from "./components/pages/lists/PatientsList";
 import UsersList from "./components/pages/lists/UsersList";
 import FilesList from "./components/pages/lists/FilesList";
 import ConversationsList from "./components/pages/lists/ConversationsList";
+
+import Dashboard from "./components/Dashboard";
 
 import PatientCreateRecord from "./components/pages/create/PatientCreate";
 import RequestCreateRecord from "./components/pages/create/RequestCreate";
@@ -44,6 +46,7 @@ const AppContainer = () => {
     <Admin
       title="healthConnect"
       layout={Layout}
+      dashboard={Dashboard}
       dataProvider={dataProvider}
       authProvider={authProvider}
       i18nProvider={i18nProvider}
