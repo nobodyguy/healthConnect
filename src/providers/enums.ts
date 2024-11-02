@@ -4,6 +4,11 @@ enum ECategories {
     UPD = "update"
 }
 
+const categoriesColors = {
+    [ECategories.CONS]: "#2196f3",
+    [ECategories.EXC]: "organge",
+    [ECategories.UPD]: "green"
+}
 
 enum EUrgency {
     L = "low",
@@ -11,14 +16,29 @@ enum EUrgency {
     H = "high"
 }
 
+const urgencyColors = {
+    [EUrgency.L]: "green",
+    [EUrgency.M]: "orange",
+    [EUrgency.H]: "red"
+}
+
 enum EStatus {
     O = "open",
-    P = "progress",
+    P = "pending",
     C = "closed"
+}
+
+const statusColors = {
+    [EStatus.O]: "gray",
+    [EStatus.P]: "#2196f3",
+    [EStatus.C]: "green"
 }
 
 export {
     ECategories,
     EUrgency,
-    EStatus
+    EStatus,
+    urgencyColors,
+    statusColors,
+    categoriesColors
 }

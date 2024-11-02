@@ -4,9 +4,24 @@ import {
     DateField,
     TextField,
     ReferenceField,
+    useRecordContext,
+    ReferenceManyCount,
+    ReferenceManyField
 } from 'react-admin'; // eslint-disable-line import/no-unresolved
 import ListPage from '../../../components/ListPage';
+import { categoriesColors, statusColors, urgencyColors } from '../../../providers/enums';
+import { Theme, styled } from '@mui/material/styles';
 
+const colors: any = {
+    status: statusColors,
+    category: categoriesColors,
+    urgency: urgencyColors
+}
+
+const StyledChip = styled(ChipField)((props) => {
+    const record: any = useRecordContext();
+    return { backgroundColor: colors[props.source][record[props.source]] }
+});
 
 const RequestsList: React.FC<{}> = () => {
     const elements = [
@@ -30,15 +45,15 @@ const RequestsList: React.FC<{}> = () => {
             cellClassName="last_update"
         />,
         // super pro file a zprávy, proklik na list dat a ukazuje, kolik jich celkem je
-        // <ReferenceManyCount
-        // label="resources.posts.fields.nb_comments"
-        // reference="comments"
-        // target="post_id"
-        // link
-        // />
-        <ChipField source="status" />,
-        <ChipField source="category" />,
-        <ChipField source="severity" sx={{ backgroundColor: "orange" }}/>
+        <ReferenceManyCount
+            label=""
+            reference="requests"
+            target="file_id"
+            link
+        />,
+        <StyledChip source="status" />,
+        <StyledChip source="category" />,
+        <StyledChip source="urgency"/>
     ]
 
     return <ListPage elements={elements} />;

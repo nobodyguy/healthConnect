@@ -1,6 +1,5 @@
 import localForageDataProvider from 'ra-data-local-forage';
-// import data from "./data.json";
-import data from "./data.tsx"
+import data from "./defaultData.tsx"
 import { FC, createContext, useContext, Dispatch, SetStateAction, useState, useEffect } from 'react';
 import { DataProvider as TDataProvider } from 'react-admin';
 

@@ -26,6 +26,8 @@ import UserCreateRecord from "./components/pages/create/UserCreate";
 import FileCreateRecord from "./components/pages/create/FileCreate";
 import ConversationCreateRecord from "./components/pages/create/ConversationCreate";
 
+import tickets from "./components/tickets";
+
 
 export const App = () => (
   <DataProvider>
@@ -49,6 +51,7 @@ const AppContainer = () => {
       requireAuth
       disableTelemetry
     >
+      <Resource name="tickets" {...tickets} list={ListGuesser}/>
       {(permissions: string) => (
         <>
           {permissions === "doctor" ? (
@@ -92,20 +95,26 @@ const AppContainer = () => {
           }
         />
       </Resource>
-      <Resource
-        name="patients"
-        list={PatientsList}
-        edit={EditGuesser}
-        show={ShowGuesser}
-        create={PatientCreateRecord}
-      />
-      <Resource
-        name="users"
-        list={UsersList}
-        edit={EditGuesser}
-        show={ShowGuesser}
-        create={UserCreateRecord}
-      />
+      {(permissions: string) => (
+        (permissions === "doctor") ? (
+          <>
+            <Resource
+              name="patients"
+              list={PatientsList}
+              edit={EditGuesser}
+              show={ShowGuesser}
+              create={PatientCreateRecord}
+            />
+            <Resource
+              name="users"
+              list={UsersList}
+              edit={EditGuesser}
+              show={ShowGuesser}
+              create={UserCreateRecord}
+            />
+          </>
+        ) : null
+      )}
     </Admin>
   )
 };
