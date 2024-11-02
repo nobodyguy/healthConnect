@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "patient_id": 1,
+    "user_id": 1,
+    "message": "Něco mě trápí"
+  },
+  {
+    "id": 2,
+    "patient_id": 1,
+    "user_id": 3,
+    "message": "Pošlete prosím fotku"
+  },
+  {
+    "id": 3,
+    "patient_id": 1,
+    "user_id": 1,
+    "message": "Přikládám fotku"
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "filename": "photo1",
+    "url": "./fever.png",
+    "type": "png"
+  },
+  {
+    "id": 2,
+    "filename": "photo2",
+    "url": "./fever2.jpg",
+    "type": "jpg"
+  }
+]

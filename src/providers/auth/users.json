@@ -6,7 +6,8 @@
       "password": "client",
       "fullName": "Dospělá Pacientka",
       "avatar": "./client_avatar.svg",
-      "role": "user"
+      "role": "user",
+      "patients": 2
     },
     {
       "id": 2,
@@ -14,7 +15,8 @@
       "password": "parent",
       "fullName": "Starostlivý Rodič",
       "avatar": "./parent_avatar.svg",
-      "role": "user"
+      "role": "user",
+      "patients": 1
     },
     {
       "id": 3,

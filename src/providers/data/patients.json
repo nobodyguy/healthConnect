@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "name": "Dětský",
+    "surname": "Pacient",
+    "birthnumber": "1234567890",
+    "users": 2
+  },
+  {
+    "id": 2,
+    "name": "Léčený",
+    "surname": "Adolescent",
+    "birthnumber": "0987654321",
+    "users": 1
+  }
+]
