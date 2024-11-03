@@ -10,6 +10,40 @@
                 "empty": "Žádní uživatelé",
                 "invite": "Chcete jednoho vytvořit?"
             },
+            "requests": {
+                "name": "Požadavek |||| Požadavky",
+                "fields": {
+                    "chat": "Konverzace",
+                    "username": "Uživatelské jméno",
+                    "title": "Název",
+                    "created": "Vytvořeno",
+                    "last_update": "Poslední aktualizace",
+                    "status": "Stav",
+                    "category": "Kategorie",
+                    "urgency": "Naléhavost"
+                },
+                "empty": "Žádné požadavky",
+                "invite": "Chcete jeden vytvořit?"
+            },
+            "files": {
+                "name": "Soubor |||| Soubory",
+                "fields": {
+                    "filename": "Jméno souboru",
+                    "username": "Uživatelské jméno"
+                },
+                "empty": "Žádné soubory",
+                "invite": "Chcete jeden přidat?"
+            },
+            "patients": {
+                "name": "Pacient |||| Pacienti",
+                "fields": {
+                    "name": "Jméno",
+                    "surname": "Příjmení",
+                    "birthnumber": "Rodné číslo"
+                },
+                "empty": "Žádní pacienti",
+                "invite": "Chcete jednoho přidat?"
+            },
             "appointments": {
                 "name": "Termín |||| Termíny",
                 "fields": {
@@ -23,7 +57,9 @@
             }
         },
         "ui": {
-            "settings": "Nastavení"
+            "settings": "Nastavení",
+            "submit": "Odeslat",
+            "upload": "Nahrát soubory"
         }
     },
     "en": {
