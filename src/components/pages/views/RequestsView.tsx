@@ -6,7 +6,8 @@ import {
     TextInput,
     SelectInput,
     Show,
-    TabbedShowLayout
+    TabbedShowLayout,
+    useTranslate
 } from 'react-admin';
 import { ChatShow } from '../../chat/ChatWindow';
 import { FileList } from "../../FileList"
@@ -16,16 +17,17 @@ import { useParams} from "react-router-dom";
 const RequestView = (action: "show" | "edit" = "show") => {
     const Wrapper = (action == "show") ? Show : Edit
     const { id: request_id } = useParams()
+    const translate = useTranslate();
 
     return (
         <Wrapper sx={{ maxWidth: "85%" }}>
             <TabbedShowLayout>
-                <TabbedShowLayout.Tab label="request">
+                <TabbedShowLayout.Tab label={translate("resources.requests.tabs.request")}>
                     <SimpleForm>
                         <Grid container width="100%" spacing={2}>
                             <Grid item xs={12}>
                                 <Typography variant="h6" gutterBottom>
-                                    Header
+                                    {translate("resources.requests.header")}
                                 </Typography>
                                 <Box display="flex">
                                     <Box flex={1} mr="0.5em">
@@ -68,7 +70,7 @@ const RequestView = (action: "show" | "edit" = "show") => {
                                 <Box mt="1em" />
 
                                 <Typography variant="h6" gutterBottom>
-                                    Request data
+                                {translate("resources.requests.request_data")}
                                 </Typography>
                                 <Box display="flex">
                                     <Box flex={2} mr="0.5em">
@@ -99,11 +101,11 @@ const RequestView = (action: "show" | "edit" = "show") => {
                     </SimpleForm>
                 </TabbedShowLayout.Tab>
 
-                <TabbedShowLayout.Tab label="chat" >
+                <TabbedShowLayout.Tab label={translate("resources.requests.tabs.chat")} >
                     <ChatShow requestId={request_id} />
                 </TabbedShowLayout.Tab>
 
-                <TabbedShowLayout.Tab label="files">
+                <TabbedShowLayout.Tab label={translate("resources.requests.tabs.files")}>
                     <FileList requestId={request_id}/>
                 </TabbedShowLayout.Tab>
             </TabbedShowLayout>

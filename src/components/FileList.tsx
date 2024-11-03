@@ -16,7 +16,7 @@ import {
   ImageSearch as ShowIcon,
   Upload as UploadIcon
 } from '@mui/icons-material';
-import { useGetList } from 'react-admin';
+import { useGetList, useTranslate } from 'react-admin';
 import SimpleDialogDemo from './ModalDialog';
 
 
@@ -24,6 +24,7 @@ const FileList: FC<{ requestId?: string }> = ({ requestId }) => {
   const { data: files = [] } = useGetList("files", { filter: { request_id: parseInt(requestId || "0") } })
   const [small, setSmall] = useState<boolean>(false)
   const containerRef = useRef(null)
+  const translate = useTranslate()
   
   useEffect(() => {
     if (containerRef.current) {
@@ -77,7 +78,7 @@ const FileList: FC<{ requestId?: string }> = ({ requestId }) => {
                     key={`${f.filename}_show`}
                     onClick={() => setUrl(f.url)}
                   >
-                    Show
+                    {translate("ui.show")}
                   </Button>
                   <Button
                     variant="contained"
@@ -85,14 +86,14 @@ const FileList: FC<{ requestId?: string }> = ({ requestId }) => {
                     sx={{mr: 1 }}
                     key={`${f.filename}_download`}
                   >
-                    Download
+                    {translate("ui.download")}
                   </Button>
                   <Button
                     variant="contained"
                     startIcon={<DeleteIcon />}
                     key={`${f.filename}_delete`}
                   >
-                    Delete
+                    {translate("ui.delete")}
                   </Button>
                 </>
               }
@@ -105,7 +106,7 @@ const FileList: FC<{ requestId?: string }> = ({ requestId }) => {
             variant="contained"
             startIcon={<UploadIcon />}
           >
-            Upload files
+            {translate("ui.upload")}
           </Button>
         </ListItem>
       </List>

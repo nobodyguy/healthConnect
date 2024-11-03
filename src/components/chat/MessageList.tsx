@@ -1,4 +1,4 @@
-import { Fragment, useRef, useEffect } from "react";
+import { Fragment, } from "react";
 import { useGetList, useRecordContext } from "react-admin";
 import {
   Divider,
@@ -8,7 +8,7 @@ import {
   ListItemText,
   ListItemAvatar,
   Box,
-  Grid
+  Grid,
 } from "@mui/material";
 
 import { NewMessageForm } from "./NewMessageForm";

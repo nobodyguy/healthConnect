@@ -5,10 +5,15 @@
                 "name": "Uživatel |||| Uživatelé",
                 "fields": {
                     "email": "Email",
-                    "username": "Uživatelské jméno"
+                    "username": "Uživatelské jméno",
+                    "birthnumber": "Rodné číslo",
+                    "birthdate": "Datum narození"
                 },
                 "empty": "Žádní uživatelé",
-                "invite": "Chcete jednoho vytvořit?"
+                "invite": "Chcete jednoho vytvořit?",
+                "header": "Hlavička",
+                "patients": "Přiřazení pacienti",
+                "fullname": "Celé jméno"
             },
             "requests": {
                 "name": "Požadavek |||| Požadavky",
@@ -23,7 +28,32 @@
                     "urgency": "Naléhavost"
                 },
                 "empty": "Žádné požadavky",
-                "invite": "Chcete jeden vytvořit?"
+                "invite": "Chcete jeden vytvořit?",
+                "header": "Hlavička",
+                "request_data": "Data požadavku",
+                "tabs": {
+                    "request": "Požadavek",
+                    "chat": "Zprávy",
+                    "files": "Soubory"
+                },
+                "statuses": {
+                    "open": "Otevřen",
+                    "pending": "Probíhající",
+                    "closed": "Uzavřen"
+                },
+                "urgencies": {
+                    "low": "Nízká",
+                    "medium": "Střední",
+                    "high": "Vysoká"
+                },
+                "categories": {
+                    "consultation": "Konzultace",
+                    "examination": "Vyšetření",
+                    "data_update": "Aktualizace údajů",
+                    "recipe": "E-recept",
+                    "application": "Žádanka",
+                    "documentation": "Dokumenty"
+                }
             },
             "files": {
                 "name": "Soubor |||| Soubory",
@@ -39,10 +69,13 @@
                 "fields": {
                     "name": "Jméno",
                     "surname": "Příjmení",
-                    "birthnumber": "Rodné číslo"
+                    "birthnumber": "Rodné číslo",
+                    "birthdate": "Datum narození",
+                    "users": "Přiřazení uživatelé"
                 },
                 "empty": "Žádní pacienti",
-                "invite": "Chcete jednoho přidat?"
+                "invite": "Chcete jednoho přidat?",
+                "header": "Hlavička"
             },
             "appointments": {
                 "name": "Termín |||| Termíny",
@@ -59,13 +92,56 @@
         "ui": {
             "settings": "Nastavení",
             "submit": "Odeslat",
-            "upload": "Nahrát soubory"
+            "upload": "Nahrát soubory",
+            "show": "Zobrazit",
+            "download": "Stáhnout",
+            "delete": "Smazat"
         }
     },
     "en": {
-        "resources": {},
+        "resources": {
+            "requests": {
+                "header": "Header",
+                "request_data": "Request data",
+                "tabs": {
+                    "request": "REQUEST",
+                    "chat": "CHAT",
+                    "files": "FILES"
+                },
+                "statuses": {
+                    "open": "Open",
+                    "pending": "Pending",
+                    "closed": "Closed"
+                },
+                "urgencies": {
+                    "low": "Low",
+                    "medium": "Medium",
+                    "high": "High"
+                },
+                "categories": {
+                    "consultation": "Consulation",
+                    "examination": "Examination",
+                    "data_update": "Data update",
+                    "recipe": "Recipe",
+                    "application": "Application form",
+                    "documentation": "Documentations"
+                }
+            },
+            "users": {
+                "header": "Header",
+                "patients": "Assigned patients"
+            },
+            "patients": {
+                "header": "Header"
+            }
+        },
         "ui": {
-            "settings": "Settings"
+            "settings": "Settings",
+            "submit": "Send",
+            "upload": "Upload files",
+            "show": "Show",
+            "download": "Download",
+            "delete": "Delete"
         }
     }
 }

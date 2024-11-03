@@ -8,7 +8,8 @@ import {
     Show,
     ReferenceField,
     useGetList,
-    useRecordContext
+    useRecordContext,
+    useTranslate
 } from 'react-admin';
 
 
@@ -16,6 +17,7 @@ const UserView = (action: "show" | "edit" = "show") => {
     const Wrapper = (action == "show") ? Show : Edit
     const record = useRecordContext()
     const { data: patients } = useGetList("patients", { filter: { user_id: record?.id } })
+    const translate = useTranslate()
 
     return (
         <Wrapper sx={{ maxWidth: "85%" }}>
@@ -23,7 +25,7 @@ const UserView = (action: "show" | "edit" = "show") => {
                 <Grid container width="100%" spacing={2}>
                     <Grid item xs={12}>
                         <Typography variant="h6" gutterBottom>
-                            Header
+                        {translate("resources.users.header")}
                         </Typography>
                         <Box display="flex">
                             <Box flex={1} mr="0.5em">
@@ -44,7 +46,7 @@ const UserView = (action: "show" | "edit" = "show") => {
                         <Box display="flex">
                             <Box flex={1} mr="0.5em">
                             <Typography variant="h6" gutterBottom>
-                                Patients
+                                {translate("resources.users.patients")}
                             </Typography>
                                 {patients?.map(p => (
                                     <ReferenceField

@@ -1,7 +1,7 @@
 enum ECategories {
     CONS = "consultation",
     EXC = "examination",
-    UPD = "update",
+    UPD = "data_update",
     REP = "recipe",
     APPL = "application",
     DOC = "documentation"

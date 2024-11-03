@@ -10,7 +10,8 @@ import {
   useRecordContext,
   useUpdate,
   useGetList,
-  FileInput, FileField
+  FileInput, FileField,
+  useTranslate
 } from "react-admin";
 import { useFormContext } from "react-hook-form";
 import {
@@ -26,6 +27,7 @@ import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 
 export const NewMessageForm = () => {
   const { refetch } = useListContext();
+  const translate = useTranslate()
   const record = useRecordContext();
   const [create, { isPending: isCreating }] = useCreate();
   const [update] = useUpdate();
@@ -128,7 +130,7 @@ export const NewMessageForm = () => {
               sx={{ m: 2 }}
               disabled={isCreating}
             >
-              Submit
+              {translate("ui.submit")}
             </Button>
             <Button
               type="button"
@@ -136,7 +138,7 @@ export const NewMessageForm = () => {
               sx={{ m: 2 }}
               onClick={handleClick}
             >
-              Upload files
+              {translate("ui.upload")}
             </Button>
             <input
               type="file"
