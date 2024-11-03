@@ -5,7 +5,7 @@ export default [
     {
         "id": 1,
         "patient_id": 1,
-        "user_id": 1,
+        "user_id": 2,
         "status": "open",
         "category": "consultation",
         "urgency": "medium",
@@ -18,9 +18,9 @@ export default [
     {
         "id": 2,
         "patient_id": 1,
-        "user_id": 1,
+        "user_id": 4,
         "status": "open",
-        "category": "consultation",
+        "category": "examination",
         "urgency": "medium",
         "created": "2024-11-01T00:45:36.728Z",
         "last_update": "2024-11-02T00:45:36.728Z",
@@ -30,7 +30,7 @@ export default [
     },
     {
         "id": 3,
-        "patient_id": 1,
+        "patient_id": 2,
         "user_id": 1,
         "status": "open",
         "category": "consultation",
@@ -43,7 +43,7 @@ export default [
     },
     {
         "id": 4,
-        "patient_id": 1,
+        "patient_id": 2,
         "user_id": 1,
         "status": "open",
         "category": "consultation",
@@ -56,7 +56,7 @@ export default [
     },
     {
         "id": 5,
-        "patient_id": 1,
+        "patient_id": 2,
         "user_id": 1,
         "status": "open",
         "category": "consultation",
@@ -69,7 +69,7 @@ export default [
     },
     {
         "id": 6,
-        "patient_id": 1,
+        "patient_id": 2,
         "user_id": 1,
         "status": "open",
         "category": "consultation",
@@ -82,7 +82,7 @@ export default [
     },
     {
         "id": 7,
-        "patient_id": 1,
+        "patient_id": 2,
         "user_id": 1,
         "status": "open",
         "category": "consultation",
@@ -95,7 +95,7 @@ export default [
     },
     {
         "id": 8,
-        "patient_id": 1,
+        "patient_id": 2,
         "user_id": 1,
         "status": "open",
         "category": "consultation",
@@ -108,7 +108,7 @@ export default [
     },
     {
         "id": 9,
-        "patient_id": 1,
+        "patient_id": 2,
         "user_id": 1,
         "status": "open",
         "category": "consultation",
@@ -121,7 +121,7 @@ export default [
     },
     {
         "id": 10,
-        "patient_id": 1,
+        "patient_id": 2,
         "user_id": 1,
         "status": "open",
         "category": "consultation",
@@ -134,7 +134,7 @@ export default [
     },
     {
         "id": 11,
-        "patient_id": 1,
+        "patient_id": 2,
         "user_id": 1,
         "status": "open",
         "category": "consultation",
@@ -147,7 +147,7 @@ export default [
     },
     {
         "id": 12,
-        "patient_id": 1,
+        "patient_id": 2,
         "user_id": 1,
         "status": "open",
         "category": "consultation",

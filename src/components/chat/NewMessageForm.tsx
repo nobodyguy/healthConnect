@@ -38,7 +38,7 @@ export const NewMessageForm = () => {
 
   const handleSubmit = (values: any) => {
     const { status, message } = values;
-    const timestamp: string = new Date().toISOString();
+    const timestamp: string = new Date().toLocaleDateString();
 
     const newMessage = {
       id: data ? data[0].id + 1 : 1,
@@ -46,7 +46,7 @@ export const NewMessageForm = () => {
       patient_id: record?.patient_id,
       user_id: record?.user_id,
       request_id: record?.id,
-      date: new Date().toISOString(),
+      date: new Date().toLocaleDateString(),
       author: JSON.parse(localStorage.getItem("user") || "{}")
     }
 
@@ -71,11 +71,11 @@ export const NewMessageForm = () => {
 
     // Programatically click the hidden file input element
   // when the Button component is clicked
-  const handleClick = (event) => {
-    hiddenFileInput?.current?.click();
+  const handleClick = (event: any) => {
+    hiddenFileInput?.current && (hiddenFileInput?.current as HTMLElement).click();
   };  // Call a function (passed as a prop from the parent component)
   // to handle the user-selected file 
-  const handleChange = (event) => {
+  const handleChange = (event: any) => {
     const fileUploaded = event.target.files[0];
     // handleFile(fileUploaded);
   };

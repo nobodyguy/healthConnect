@@ -7,16 +7,18 @@
       "fullName": "Dospělá Pacientka",
       "avatar": "./client_avatar.svg",
       "role": "user",
-      "patients": 2
+      "patients": 2,
+      "patient_id": 2
     },
     {
       "id": 2,
       "username": "user",
       "password": "user",
       "fullName": "Nejistý pacient",
-      "avatar": "./parent_avatar.svg",
+      "avatar": "./user_avatar.svg",
       "role": "user",
-      "patients": 1
+      "patients": 1,
+      "patient_id": 1
     },
     {
       "id": 3,
@@ -25,6 +27,16 @@
       "fullName": "MUDr. Lékař",
       "avatar": "./doctor_avatar.svg",
       "role": "doctor"
+    },
+    {
+      "id": 4,
+      "username": "parent",
+      "password": "parent",
+      "fullName": "Starostlivý rodič",
+      "avatar": "./parent_avatar.svg",
+      "role": "user",
+      "patients": 1,
+      "patient_id": 1
     }
   ]
 }

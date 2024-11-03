@@ -15,7 +15,9 @@ import {
     SimpleList,
     TextInput,
     TopToolbar,
-    useTranslate
+    useTranslate,
+    usePermissions,
+    useGetIdentity
 } from 'react-admin'; // eslint-disable-line import/no-unresolved
 import { Identifier, RaRecord } from 'ra-core';
 
@@ -65,13 +67,14 @@ const mobileListPageActions = (
     </TopToolbar>
 );
 
-const MobileListPage: React.FC<{ elements?: React.JSX.Element[] }> = ({ elements = [] }) => {
+const MobileListPage: React.FC<{ filters: { [key: string]: string | number } }> = ({ filters = {} }) => {
     return (
         <InfiniteList
             filters={postFilter}
             sort={{ field: 'published_at', order: 'DESC' }}
             exporter={exporter}
             actions={mobileListPageActions}
+            filter={filters}
         >
             <SimpleList
                 primaryText={record => record.title}
@@ -126,30 +129,39 @@ const rowClick = (_id: Identifier, _resource: string, record: RaRecord): "edit" 
     return 'show';
 };
 
-const DesktopListPage: React.FC<{ elements: React.JSX.Element[] }> = ({ elements }) => (
-    <List
-        filters={postFilter}
-        sort={{ field: 'published_at', order: 'DESC' }}
-        exporter={exporter}
-        actions={postListActions}
-        sx={{ maxWidth: { md: 'auto', lg: "85%" } }}
-    >
-        <StyledDatagrid
-            bulkActionButtons={postListBulkActions}
-            rowClick={rowClick}
-            omit={['average_note']}
+const DesktopListPage: React.FC<{ elements: React.JSX.Element[], filters: { [key: string]: string | number } }> = ({ elements, filters = {} }) => {
+    return (    
+        <List
+            filters={postFilter}
+            sort={{ field: 'published_at', order: 'DESC' }}
+            exporter={exporter}
+            filter={filters}
+            actions={postListActions}
+            sx={{ maxWidth: { md: 'auto', lg: "85%" } }}
         >
-            {...elements}
-        </StyledDatagrid>
-    </List>
-);
+            <StyledDatagrid
+                bulkActionButtons={postListBulkActions}
+                rowClick={rowClick}
+                omit={['average_note']}
+            >
+                {...elements}
+            </StyledDatagrid>
+        </List>
+    )
+};
 
-const ListPage: React.FC<{ elements?: React.JSX.Element[] }> = ({ elements = [] }) => {
+const ListPage: React.FC<{ elements?: React.JSX.Element[], filters?: { [key: string]: string | number }, blockFilters: boolean }> = ({ elements = [], filters = {}, blockFilters = false }) => {
     const isSmall = useMediaQuery<Theme>(
         theme => theme.breakpoints.down('md'),
         { noSsr: true }
     );
-    return isSmall ? <MobileListPage elements={elements}  /> : <DesktopListPage elements={elements} />;
+
+    const { permissions } = usePermissions()
+    const { data: user } = useGetIdentity()
+
+    const filter = (permissions != "doctor") ? (blockFilters) ? filters : { patient_id: user?.patient_id, ...filters } : {}
+    console.log(filter)
+    return isSmall ? <MobileListPage filters={filter} /> : <DesktopListPage elements={elements} filters={filter} />;
 };
 
 export default ListPage;

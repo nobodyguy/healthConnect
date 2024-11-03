@@ -5,7 +5,8 @@
     "url": "./fever.png",
     "type": "png",
     "created": "2024-09-03T06:57:47.342Z",
-    "request_id": 1
+    "request_id": 1,
+    "patient_id": 1
   },
   {
     "id": 2,
@@ -13,7 +14,8 @@
     "url": "./fever2.jpg",
     "type": "jpg",
     "created": "2024-10-5T011:57:47.342Z",
-    "request_id": 1
+    "request_id": 1,
+    "patient_id": 1
   },
   {
     "id": 3,
@@ -21,7 +23,8 @@
     "url": "./report.png",
     "type": "png",
     "created": "2024-10-25T018:45:47.342Z",
-    "request_id": 1
+    "request_id": 1,
+    "patient_id": 1
   },
   {
     "id": 4,
@@ -29,6 +32,7 @@
     "url": "./rtg.jpg",
     "type": "jpg",
     "created": "2024-11-03T06:57:47.342Z",
-    "request_id": 1
+    "request_id": 1,
+    "patient_id": 1
   }
 ]

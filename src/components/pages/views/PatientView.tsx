@@ -4,14 +4,16 @@ import {
     SimpleForm,
     TextInput,
     Show,
-    useTranslate,
+    useTranslate
 } from 'react-admin';
+import { FileList } from '../../FileList';
 import { useParams} from "react-router-dom";
 
 
 const PatientView = (action: "show" | "edit" = "show") => {
     const Wrapper = (action == "show") ? Show : Edit
     const translate = useTranslate()
+    const { id } = useParams()
 
     return (
         <Wrapper sx={{ maxWidth: "85%" }}>
@@ -46,6 +48,9 @@ const PatientView = (action: "show" | "edit" = "show") => {
                     </Grid>
                 </Grid>
             </SimpleForm>
+            {(action != "show") ? null:
+                <FileList patientId={id}/>
+            }
         </Wrapper>
     )
 };

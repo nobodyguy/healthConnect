@@ -20,8 +20,10 @@ import { useGetList, useTranslate } from 'react-admin';
 import SimpleDialogDemo from './ModalDialog';
 
 
-const FileList: FC<{ requestId?: string }> = ({ requestId }) => {
-  const { data: files = [] } = useGetList("files", { filter: { request_id: parseInt(requestId || "0") } })
+const FileList: FC<{ requestId?: string, patientId?: string }> = ({ requestId, patientId }) => {
+  const filterParams = (requestId) ? { request_id: parseInt(requestId || "0") } : { patient_id: parseInt(patientId || "0") }
+  const { data: files = [] } = useGetList("files", { filter: filterParams })
+  console.log(filterParams, files)
   const [small, setSmall] = useState<boolean>(false)
   const containerRef = useRef(null)
   const translate = useTranslate()

@@ -32,8 +32,8 @@ const RequestCreateRecord: React.FC<{}> = () => {
     ]
 
     const otherValues = {
-        created: new Date().toISOString(),
-        last_updated: new Date().toISOString(),
+        created: new Date().toLocaleDateString(),
+        last_updated: new Date().toLocaleDateString(),
         user_id: JSON.parse(localStorage.getItem("user") || "{}").id,
         status: EStatus.O
     }
