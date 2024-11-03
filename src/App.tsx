@@ -1,4 +1,9 @@
 import { Admin, Resource } from "react-admin";
+import {
+  Person as UserIcon,
+  MedicalServices as PatientIcon,
+  Assignment as RequestIcon
+} from "@mui/icons-material"
 
 import Layout from "./components/Layout";
 import authProvider from "./providers/auth/authProvider";
@@ -8,13 +13,12 @@ import i18nProvider from "./providers/i18n/i18nProvider";
 import {
   AppointmentList,
   AppointmentListCalendar,
-  AppointmentIcon,
+  AppointmentIcon
 } from "./resources/appointments";
 
 import RequestsList from "./components/pages/lists/RequestsList";
 import PatientsList from "./components/pages/lists/PatientsList";
 import UsersList from "./components/pages/lists/UsersList";
-import FilesList from "./components/pages/lists/FilesList";
 
 import Dashboard from "./components/dashboard/Dashboard";
 
@@ -66,13 +70,15 @@ const AppContainer = () => {
             edit={() => RequestView("edit")}
             show={() => RequestView("show")}
             create={RequestCreateRecord}
-                />
+            icon={RequestIcon}
+          />
           <Resource
             name="patients"
             list={PatientsList}
             edit={permissions === "doctor" ? () => PatientView("edit") : undefined}
             show={() => PatientView("show")}
             create={permissions === "doctor" ? PatientCreateRecord : undefined}
+            icon={PatientIcon}
           />
           <Resource
             name="users"
@@ -80,6 +86,7 @@ const AppContainer = () => {
             edit={permissions === "doctor" ? () => UserView("edit") : undefined}
             show={() => UserView("show")}
             create={permissions === "doctor" ? UserCreateRecord : undefined}
+            icon={UserIcon}
           />
         </>
       )}
