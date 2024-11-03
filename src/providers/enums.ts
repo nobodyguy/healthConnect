@@ -1,10 +1,10 @@
 enum ECategories {
-    CONS = "consultation",
-    EXC = "examination",
-    UPD = "data_update",
-    REP = "recipe",
-    APPL = "application",
-    DOC = "documentation"
+    CONS = "resources.requests.categories.consultation",
+    EXC = "resources.requests.categories.examination",
+    UPD = "resources.requests.categories.data_update",
+    REP = "resources.requests.categories.recipe",
+    APPL = "resources.requests.categories.application",
+    DOC = "resources.requests.categories.documentation"
 }
 
 const categoriesColors = {
@@ -17,9 +17,9 @@ const categoriesColors = {
 }
 
 enum EUrgency {
-    L = "low",
-    M = "medium",
-    H = "high"
+    L = "resources.requests.urgencies.low",
+    M = "resources.requests.urgencies.medium",
+    H = "resources.requests.urgencies.high"
 }
 
 const urgencyColors = {
@@ -29,9 +29,9 @@ const urgencyColors = {
 }
 
 enum EStatus {
-    O = "open",
-    P = "pending",
-    C = "closed"
+    O = "resources.requests.statuses.open",
+    P = "resources.requests.statuses.pending",
+    C = "resources.requests.statuses.closed"
 }
 
 const statusColors = {

@@ -1,8 +1,10 @@
 import { categoriesColors, statusColors, urgencyColors } from '../providers/enums';
 import { styled } from '@mui/material/styles';
+import Chip from '@mui/material/Chip';
 import {
-    ChipField,
     useRecordContext,
+    useTranslate,
+    ChipField
 } from 'react-admin'; // eslint-disable-line import/no-unresolved
 
 
@@ -11,6 +13,12 @@ const colors: any = {
     category: categoriesColors,
     urgency: urgencyColors
 }
+
+const CustomChipField = ({ source, onClick }) => {
+    const record: any = useRecordContext();
+    const translate = useTranslate();
+    return <Chip label={translate(record[source])} onClick={onClick} />
+};
 
 const StyledChip = styled(ChipField)((props) => {
     const record: any = useRecordContext();

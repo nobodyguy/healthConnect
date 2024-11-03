@@ -2,14 +2,14 @@ import * as React from "react";
 import {
   DateField,
   TextField,
-    ReferenceField,
-    useList,
-    ResourceContextProvider,
-    ListContextProvider,
-    Datagrid
-} from 'react-admin'; // eslint-disable-line import/no-unresolved
-import ListPage from '../../../components/ListPage';
-import { StyledChip } from '../../styled';
+  ReferenceField,
+  ResourceContextProvider,
+  useList,
+  Datagrid,
+  ListContextProvider,
+} from "react-admin"; // eslint-disable-line import/no-unresolved
+import ListPage from "../../../components/ListPage";
+import { StyledChip } from "../../styled";
 
 const RequestsList: React.FC<{}> = () => {
   const elements = [

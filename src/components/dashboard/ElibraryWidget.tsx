@@ -6,16 +6,16 @@ import Carousel from "react-material-ui-carousel";
 const Elibrary = () => {
     const items = [
       {
-        name: "Nová brožura k dispozici",
-        description:
-          "Přečtěte si jak očkování proti pneumokokovým onemocněním pomáhá chránit vaše dítě.",
-        img: "https://www.babyonline.cz/Image/ockovani/ebook-ockovani-2021/brozura-ockovani-page-011.jpg",
-      },
-      {
         name: "Jak připravit imunitu na podzim?",
         description: "",
         img: "",
       },
+      {
+        name: "Nová brožura k dispozici",
+        description:
+          "Přečtěte si jak očkování proti pneumokokovým onemocněním pomáhá chránit vaše dítě.",
+        img: "https://www.babyonline.cz/Image/ockovani/ebook-ockovani-2021/brozura-ockovani-page-011.jpg",
+      }
     ];
     return (
       <CardContent>
