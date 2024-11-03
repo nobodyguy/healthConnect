@@ -34,5 +34,14 @@
     "created": "2024-11-03T06:57:47.342Z",
     "request_id": 1,
     "patient_id": 1
+  },
+  {
+    "id": 5,
+    "filename": "RTG",
+    "url": "./rtg.jpg",
+    "type": "jpg",
+    "created": "2024-11-03T06:57:47.342Z",
+    "request_id": 2,
+    "patient_id": 1
   }
 ]
