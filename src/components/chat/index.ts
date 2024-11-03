@@ -1,7 +1,7 @@
 import ForumIcon from "@mui/icons-material/Forum";
-import { TicketShow } from "./TicketShow";
+import { ChatShow } from "./ChatWindow";
 
 export default {
-  show: TicketShow,
+  show: ChatShow,
   icon: ForumIcon,
 };

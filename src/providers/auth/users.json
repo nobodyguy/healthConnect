@@ -11,9 +11,9 @@
     },
     {
       "id": 2,
-      "username": "parent",
-      "password": "parent",
-      "fullName": "Starostlivý Rodič",
+      "username": "user",
+      "password": "user",
+      "fullName": "Nejistý pacient",
       "avatar": "./parent_avatar.svg",
       "role": "user",
       "patients": 1

@@ -3,12 +3,32 @@
     "id": 1,
     "filename": "photo1",
     "url": "./fever.png",
-    "type": "png"
+    "type": "png",
+    "created": "2024-09-03T06:57:47.342Z",
+    "request_id": 1
   },
   {
     "id": 2,
     "filename": "photo2",
     "url": "./fever2.jpg",
-    "type": "jpg"
+    "type": "jpg",
+    "created": "2024-10-5T011:57:47.342Z",
+    "request_id": 1
+  },
+  {
+    "id": 3,
+    "filename": "Report",
+    "url": "./report.pdf",
+    "type": "pdf",
+    "created": "2024-10-25T018:45:47.342Z",
+    "request_id": 1
+  },
+  {
+    "id": 4,
+    "filename": "RTG.pdf",
+    "url": "./rtg.jpg",
+    "type": "jpg",
+    "created": "2024-11-03T06:57:47.342Z",
+    "request_id": 2
   }
 ]

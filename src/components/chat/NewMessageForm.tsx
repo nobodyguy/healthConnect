@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { Fragment, useRef } from "react";
 import {
   Form,
   required,
@@ -19,7 +19,8 @@ import {
   ListItem,
   ListItemAvatar,
   ListItemText,
-  Grid, Box
+  Grid,
+  Divider
 } from "@mui/material";
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 
@@ -78,72 +79,75 @@ export const NewMessageForm = () => {
   };
 
   return (
-    <ListItem
-      alignItems="flex-start"
-      sx={{
-        backgroundColor: (theme) => theme.palette.background.default,
-      }}
-    >
-      <ListItemAvatar>
-        <Avatar src={identity?.avatar} />
-      </ListItemAvatar>
-      <ListItemText
+    <Fragment>
+      <Divider />
+      <ListItem
+        alignItems="flex-start"
         sx={{
-          width: "100%",
-          flexDirection: "column-reverse",
-          display: "flex",
-          gap: 0.5,
-          "& .MuiListItemText-primary": {
-            whiteSpace: "pre-line",
-          },
-          "& .MuiListItemText-secondary": {},
+          backgroundColor: (theme) => theme.palette.background.default,
         }}
-        secondary={`${identity?.fullName} <${identity?.username}>`}
       >
-        <Form
-          onSubmit={handleSubmit}
-          record={{
-            status: "pending",
+        <ListItemAvatar>
+          <Avatar src={identity?.avatar} />
+        </ListItemAvatar>
+        <ListItemText
+          sx={{
+            width: "100%",
+            flexDirection: "column-reverse",
+            display: "flex",
+            gap: 0.5,
+            "& .MuiListItemText-primary": {
+              whiteSpace: "pre-line",
+            },
+            "& .MuiListItemText-secondary": {},
           }}
+          secondary={`${identity?.fullName}`}
         >
-          <SetFormContext resetForm={resetForm} />
-          <Grid
-            container
+          <Form
+            onSubmit={handleSubmit}
+            record={{
+              status: "pending",
+            }}
           >
-            <TextInput
-              source="message"
-              multiline
-              fullWidth
-              minRows={3}
-              helperText={false}
-              validate={required()}
+            <SetFormContext resetForm={resetForm} />
+            <Grid
+              container
+            >
+              <TextInput
+                source="message"
+                multiline
+                fullWidth
+                minRows={3}
+                helperText={false}
+                validate={required()}
+              />
+            </Grid>
+            <Button
+              type="submit"
+              variant="contained"
+              sx={{ m: 2 }}
+              disabled={isCreating}
+            >
+              Submit
+            </Button>
+            <Button
+              type="button"
+              variant="contained"
+              sx={{ m: 2 }}
+              onClick={handleClick}
+            >
+              Upload files
+            </Button>
+            <input
+              type="file"
+              onChange={handleChange}
+              ref={hiddenFileInput}
+              style={{display: 'none'}} // Make the file input element invisible
             />
-          </Grid>
-          <Button
-            type="submit"
-            variant="contained"
-            sx={{ m: 2 }}
-            disabled={isCreating}
-          >
-            Submit
-          </Button>
-          <Button
-            type="button"
-            variant="contained"
-            sx={{ m: 2 }}
-            onClick={handleClick}
-          >
-            Upload files
-          </Button>
-          <input
-            type="file"
-            onChange={handleChange}
-            ref={hiddenFileInput}
-            style={{display: 'none'}} // Make the file input element invisible
-          />
-        </Form>
-      </ListItemText>
-    </ListItem>
+          </Form>
+        </ListItemText>
+      </ListItem>
+    </Fragment>
   );
 };
 

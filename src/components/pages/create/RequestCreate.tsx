@@ -1,15 +1,15 @@
 import * as React from 'react';
-import { useMemo } from 'react';
 import {
-    ArrayInput,
-    DateInput,
     required,
     SelectInput,
-    SimpleFormIterator,
-    TextInput
+    TextInput,
+    TabbedForm,
+    Create
 } from 'react-admin';
 import DetailPage from "../../../components/DetailPage"
 import { EUrgency, ECategories, EStatus } from '../../../providers/enums';
+import { ChatShow } from '../../chat/ChatWindow';
+import { FileList } from '../../FileList';
 
 
 const RequestCreateRecord: React.FC<{}> = () => {
@@ -38,7 +38,23 @@ const RequestCreateRecord: React.FC<{}> = () => {
         status: EStatus.O
     }
 
-    return <DetailPage sourceName="request" fields={fields} otherValues={otherValues} />
+    return (
+        <Create>
+            <TabbedForm>
+                <TabbedForm.Tab label="request">
+                    <DetailPage sourceName="request" fields={fields} otherValues={otherValues} />
+                </TabbedForm.Tab>
+
+                <TabbedForm.Tab label="chat" >
+                    <ChatShow />
+                </TabbedForm.Tab>
+
+                <TabbedForm.Tab label="files">
+                    <FileList />
+                </TabbedForm.Tab>
+            </TabbedForm>
+        </Create>
+    )
 };
 
 export default RequestCreateRecord;

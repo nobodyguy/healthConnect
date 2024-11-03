@@ -47,7 +47,7 @@ const CreateRecord: React.FC<{ sourceName: string, fields: React.JSX.Element[], 
     );
 
     return (
-        <Create redirect="edit" sx={{ maxWidth: { md: 'auto', lg: "85%" } }}>
+        <Create redirect="edit" sx={{ width: "100%", maxWidth: { md: 'auto', lg: "85%" } }}>
             <SimpleFormConfigurable
                 toolbar={<CreateToolbar sourceName={sourceName} otherValues={otherValues} />}
                 defaultValues={defaultValues}

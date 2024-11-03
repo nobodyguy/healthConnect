@@ -1,32 +1,26 @@
+import { FC } from "react";
 import {
-  Show,
   TextField,
   ReferenceManyField,
-  DateField,
-  ReferenceField,
   SimpleShowLayout,
   useRecordContext,
 } from "react-admin";
 import { Box } from "@mui/material";
-import { StyledChip } from "../styled";
 import { MessageList } from "./MessageList";
-import { StatusField } from "./StatusField";
 
-export const TicketShow = () => {
+export const ChatShow: FC<{ requestId?: string }> = ({ requestId }) => {
   return (
-    <Show sx={{ overflowY: "hidden", height: "100vh" }}>
-      <SimpleShowLayout>
-        <TextField source="subject" label="" variant="h5" sx={{ ml: "72px" }} />
-        <ReferenceManyField
-          label={false}
-          reference="messages"
-          target="ticket_id"
-          sort={{ field: "timestamp", order: "ASC" }}
-        >
-          <MessageList />
-        </ReferenceManyField>
-      </SimpleShowLayout>
-    </Show>
+    <>
+      <TextField source="subject" label="" variant="h5" sx={{ ml: "72px" }} />
+      <ReferenceManyField
+        label={false}
+        reference="messages"
+        target="ticket_id"
+        sort={{ field: "timestamp", order: "ASC" }}
+      >
+        <MessageList />
+      </ReferenceManyField>
+    </>
   );
 };
 
