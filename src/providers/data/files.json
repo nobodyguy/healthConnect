@@ -18,17 +18,17 @@
   {
     "id": 3,
     "filename": "Report",
-    "url": "./report.pdf",
-    "type": "pdf",
+    "url": "./report.png",
+    "type": "png",
     "created": "2024-10-25T018:45:47.342Z",
     "request_id": 1
   },
   {
     "id": 4,
-    "filename": "RTG.pdf",
+    "filename": "RTG",
     "url": "./rtg.jpg",
     "type": "jpg",
     "created": "2024-11-03T06:57:47.342Z",
-    "request_id": 2
+    "request_id": 1
   }
 ]
